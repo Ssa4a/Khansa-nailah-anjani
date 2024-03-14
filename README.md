@@ -10,13 +10,17 @@ Pada tugas kali ini tertera tugas membuat program dengan menggunakan pointer unt
 
 ### Code
 
-```#include <stdio.h>
+```
+//DECLARE LIBRARY YANG DIGUNAKAN 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+//DECLARE MAKSIMUM DAN MINIMUM UNTUK TEXT LENGTH
 #define MAX_LENGTH 2024
 #define MIN_LENGTH 1945
 
+//FUNGSI UNTUK MENAMPILKAN OUTPUT BERDASARKAN KONDISI LENGTH TEXT 
 void lessThanRequired (){
     printf("The length of your text is less than specified, please update your text,keep it spirit!\n");
 }
@@ -29,18 +33,20 @@ void moreThanRequired (){
     printf("Sorry:( your text is too long, please reduce the text\n");
 }
 
+// MEMBUAT FUNGSI UNTUK MELAKUKAN CEK TERHADAP LENGTH TEXT
 int checkLenghtRequirement(char* text){
     int length = strlen(text);
-    if (length < MIN_LENGTH)
+    if (length < MIN_LENGTH) //KONDISI JIKA LENGTH KURANG DARI JUMLAH MINIMUM LENGHT 
         return 0;
-    else if (length == MIN_LENGTH)
+    else if (length == MIN_LENGTH) //KONDISI JIKA LENGTH SAMA DENGAN MINIMUM LENGTH
         return 1;
-    else if (length <= MAX_LENGTH)  // Added condition for maximum length
+    else if (length <= MAX_LENGTH)  //KONDISI JIKA LENGTH KURANG DARI SAMA DENGAN JUMLAH MAKSIMAL LENGTH
         return 2;
     else
-        return 3; //when length exceeds MAX_LENGTH
+        return 3; 
 }
 
+//MENDEKLARASI MAIN PROGRAM 
 int main() {
     int length, lengthOfText, selectOption;
     FILE *fptr = NULL;
@@ -59,11 +65,13 @@ int main() {
 
     selectOption = checkLenghtRequirement(text);
 
+    //MEMANGGIL FUNGSI UNTUK MELAKUKAN PENGECEKAN TEXT MENGGUNAKAN ARRAY 
     void (*functions[3])() = {lessThanRequired, equalThanRequired, moreThanRequired};
     lengthOfText = (MIN_LENGTH * (selectOption == 0)) + (MIN_LENGTH * (selectOption == 2));
 
     functions[selectOption]();
 
+    //OUTPUT DITAMBAH HASIL YANG SUDAH DIDAPATKAN SEETELAH MELALUI PROSES PENGECEKAN 
     printf("\nThe Length is updated to %d", lengthOfText);
     printf("\n===============================================");
 
