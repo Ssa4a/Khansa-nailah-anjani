@@ -65,7 +65,7 @@ int main() {
 
     selectOption = checkLenghtRequirement(text);
 
-    //MEMANGGIL FUNGSI UNTUK MELAKUKAN PENGECEKAN TEXT MENGGUNAKAN ARRAY 
+    //MEMANGGIL FUNGSI UNTUK MELAKUKAN PENGECEKAN TEXT 
     void (*functions[3])() = {lessThanRequired, equalThanRequired, moreThanRequired};
     lengthOfText = (MIN_LENGTH * (selectOption == 0)) + (MIN_LENGTH * (selectOption == 2));
 
@@ -83,20 +83,21 @@ int main() {
 
 ### Penjelasan
 
-berikut adalah penjelasan mengenai code program diatas :
+berikut adalah penjelasan mengenai code program diatas : 
+
 
 ```
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> 
 ```
-Baris ini mengimpor tiga header file standar yang diperlukan untuk operasi input/output, alokasi memori, dan manipulasi string.
+Baris diatas berguna untuk mengimpor tiga header file standar yang diperlukan untuk operasi input/output, alokasi memori, dan manipulasi string.
 
 ```
 #define MAX_LENGTH 2024
 #define MIN_LENGTH 1945
 ```
-Terdapat dua makro yang didefinisikan untuk menetapkan panjang maksimum dan minimum yang diperbolehkan untuk teks. Seperti pada program panjang maksimum 2024 dan panjang minimum 1945.
+Baris diatas terdapat dua makro yang didefinisikan untuk menetapkan panjang maksimum dan minimum yang diperbolehkan untuk teks. Seperti pada program panjang maksimum 2024 dan panjang minimum 1945.
 
 ```
 void lessThanRequired (){
@@ -111,7 +112,8 @@ void moreThanRequired (){
     printf("Your text is too long, please reduce the text\n");
 }
 ```
-Tiga fungsi yang nantinya mencetak pesan,kemudian memberi output tergantung dari kondisi panjang teks yang akan diperiksa. Seperti panjang teks kurang dari yang diizinkan,panjang teks sudah sesuai dengan yang diizinkan,panjang teks terlalu panjang dan perlu dipersingkat. Fungsi ini digunakan dalam program untuk memberikan umpan balik kepada pengguna berdasarkan panjang teks yang diberikan.
+Tiga fungsi diatas nantinya akan mencetak sebuah pesan (output),yang dimana memberikan output tergantung dari kondisi panjang teks yang akan diperiksa. Seperti panjang teks kurang dari yang diizinkan,panjang teks sudah sesuai dengan yang diizinkan,panjang teks terlalu panjang dan perlu dipersingkat. Fungsi ini digunakan dalam program untuk memberikan umpan balik kepada pengguna berdasarkan panjang teks yang diberikan.
+
 
 ```
 int checkLenghtRequirement(char* text){
@@ -120,13 +122,13 @@ int checkLenghtRequirement(char* text){
         return 0;
     else if (length == MIN_LENGTH)
         return 1;
-    else if (length <= MAX_LENGTH)  // Added condition for maximum length
+    else if (length <= MAX_LENGTH)  
         return 2;
     else
-        return 3; //when length exceeds MAX_LENGTH
+        return 3; 
 }
 ```
-Fungsi yang akan memeriksa panjang teks yang diberikan dan akan mengembalikan nilai yang menunjukkan kondisi apakah panjangnya kurang dari minimum, sama dengan minimum, atau lebih dari minimum,tetapi kurang dari atau sama dengan maksimum seperti yang ditentukan.
+Diatas adalah fungsi yang akan memeriksa panjang teks yang diberikan dan akan mengembalikan nilai yang menunjukkan kondisi apakah panjangnya kurang dari minimum, sama dengan minimum, atau lebih dari minimum,tetapi kurang dari atau sama dengan maksimum seperti yang ditentukan.
 
 ```
 int main() {
@@ -146,21 +148,25 @@ int main() {
     fclose(fptr);
 
     selectOption = checkLenghtRequirement(text);
-
+ 
     void (*functions[3])() = {lessThanRequired, equalThanRequired, moreThanRequired};
     lengthOfText = (MIN_LENGTH * (selectOption == 0)) + (MIN_LENGTH * (selectOption == 2));
 
     functions[selectOption]();
 
     printf("\nThe Length is updated to %d", lengthOfText);
+    printf("\n===============================================");
 
     return 0;
 }
 ```
-Di dalam fungsi main(),terdapat beberapa variabel yang dideklarasikan untuk menyimpan panjang teks, pilihan opsi, pointer file, dan array untuk menyimpan teks dari file.
+Barisan dalam fungsi main() diatas,terdapat beberapa variabel yang dideklarasikan untuk menyimpan panjang teks, pilihan opsi, pointer file, dan array untuk menyimpan teks dari file.
 
 File "file.txt" dibuka dan teksnya dibaca ke dalam array text. File ditutup setelah selesai dibaca. 
+
 Kemudian, fungsi checkLengthRequirement() dipanggil untuk memeriksa panjang teks dan memutuskan opsi mana yang harus dipilih. Berdasarkan pilihan tersebut, fungsi yang sesuai dipilih dari array fungsi dan dipanggil. Panjang teks yang akan diupdate juga dihitung dan dicetak di akhir.
+
+Kemudian selesailah jalan program diatas.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
