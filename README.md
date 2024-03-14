@@ -7,7 +7,8 @@ Pada tugas kali ini tertera tugas membuat program dengan menggunakan pointer unt
 - Code
 - Penjelasan
 
-#### Code
+
+### Code
 
 ```#include <stdio.h>
 #include <stdlib.h>
@@ -70,7 +71,9 @@ int main() {
 }
 ```
 
-#### Penjelasan
+
+
+### Penjelasan
 
 berikut adalah penjelasan mengenai code program diatas :
 
